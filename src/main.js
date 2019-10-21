@@ -22,7 +22,14 @@ import router from './router.js';
 //导入vue-resource
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
+// 设置vue-resource的ajax请求的根路径
+Vue.http.options.root = 'http://192.168.1.104:8888';
 
+import moment from 'moment'
+//定义全局的过滤器
+Vue.filter('dateFormat', function(dataStr, pattern="YYYY-MM-DD HH:mm:ss") {
+    return moment(dataStr).format(pattern);
+})
 
 
 var vm = new Vue({
